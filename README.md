@@ -1,2 +1,4 @@
-# scf-java-libs
-tencent cloud scf java libs 腾讯云无服务器云函数 java 库
+# Tencent Cloud SCF Java Support Libraries
+Interface definitions for Java code running on the Tencent Cloud SCF platform.
+
+To get started writing Tencent Cloud SCF functions in Java, check out the [official documentation] (https://cloud.tencent.com/document/product/583/12214).
