@@ -1,4 +1,4 @@
-# Tecent Cloud SCF Java Events
+# Tencent Cloud SCF Java Events
 
 ### Event Models Supported
 * APIGatewayProxyRequestEvent
