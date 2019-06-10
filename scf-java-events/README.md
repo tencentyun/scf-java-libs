@@ -14,7 +14,7 @@ The dependencies section in the pom.xml file would like this
 <dependencies>
     ...
     <dependency>
-        <groupId>com.tencent.cloud</groupId>
+        <groupId>com.tencentcloudapi</groupId>
         <artifactId>scf-java-events</artifactId>
         <version>0.0.1</version>
     </dependency>
