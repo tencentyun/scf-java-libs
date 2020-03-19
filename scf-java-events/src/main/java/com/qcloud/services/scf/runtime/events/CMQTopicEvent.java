@@ -83,7 +83,7 @@ public class CMQTopicEvent implements Serializable, Cloneable {
 
         private String msgBody;
 
-        private List<String> msgTag;
+        private String msgTag;
 
         public MsgInfo() {}
 
@@ -151,11 +151,11 @@ public class CMQTopicEvent implements Serializable, Cloneable {
             this.msgBody = msgBody;
         }
 
-        public List<String> getMsgTag() {
+        public String getMsgTag() {
             return msgTag;
         }
 
-        public void setMsgTag(List<String> msgTag) {
+        public void setMsgTag(String msgTag) {
             this.msgTag = msgTag;
         }
 
