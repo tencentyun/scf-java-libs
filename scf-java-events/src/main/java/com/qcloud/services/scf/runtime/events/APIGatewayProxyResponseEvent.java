@@ -1,7 +1,8 @@
 package com.qcloud.services.scf.runtime.events;
 
+import com.alibaba.fastjson.JSONObject;
+
 import java.io.Serializable;
-import java.util.Map;
 
 /**
  * Class that represents an APIGatewayProxyResponseEvent object
@@ -12,8 +13,8 @@ public class APIGatewayProxyResponseEvent implements Serializable, Cloneable {
 
     private Integer statusCode;
 
-    private Map<String, String> headers;
-    
+    private JSONObject headers;
+
     private String body;
 
     private Boolean isBase64Encoded;
@@ -21,7 +22,8 @@ public class APIGatewayProxyResponseEvent implements Serializable, Cloneable {
     /**
      * default constructor
      */
-    public APIGatewayProxyResponseEvent() {}
+    public APIGatewayProxyResponseEvent() {
+    }
 
     public Integer getStatusCode() {
         return statusCode;
@@ -31,11 +33,11 @@ public class APIGatewayProxyResponseEvent implements Serializable, Cloneable {
         this.statusCode = statusCode;
     }
 
-    public Map<String, String> getHeaders() {
+    public JSONObject getHeaders() {
         return headers;
     }
 
-    public void setHeaders(Map<String, String> headers) {
+    public void setHeaders(JSONObject headers) {
         this.headers = headers;
     }
 
@@ -59,23 +61,16 @@ public class APIGatewayProxyResponseEvent implements Serializable, Cloneable {
      * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
-     *
      * @see Object#toString()
      */
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("{");
-        if (getStatusCode() != null)
-            sb.append("statusCode: ").append(getStatusCode()).append(",");
-        if (getHeaders() != null)
-            sb.append("headers: ").append(getHeaders().toString()).append(",");
-        if (getIsBase64Encoded() != null)
-            sb.append("isBase64Encoded: ").append(getIsBase64Encoded()).append(",");
-        if (getBody() != null)
-            sb.append("body: ").append(getBody());
-        sb.append("}");
-        return sb.toString();
+        JSONObject obj = new JSONObject();
+        obj.put("isBase64Encoded", getIsBase64Encoded());
+        obj.put("statusCode", getStatusCode());
+        obj.put("headers", getHeaders());
+        obj.put("body", getBody());
+        return obj.toJSONString();
     }
 
     @Override
