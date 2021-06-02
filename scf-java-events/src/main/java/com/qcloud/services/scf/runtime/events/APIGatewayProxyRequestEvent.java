@@ -31,6 +31,8 @@ public class APIGatewayProxyRequestEvent implements Serializable, Cloneable {
 
     private String httpMethod;
 
+    private Boolean isBase64Encoded;
+
     /**
      * class that represents proxy request context
      */
@@ -52,10 +54,13 @@ public class APIGatewayProxyRequestEvent implements Serializable, Cloneable {
 
         private String stage;
 
+        private Boolean isBase64Encoded;
+
         /**
          * default constructor
          */
-        public ProxyRequestContext() {}
+        public ProxyRequestContext() {
+        }
 
         public String getServiceId() {
             return serviceId;
@@ -113,6 +118,14 @@ public class APIGatewayProxyRequestEvent implements Serializable, Cloneable {
             this.stage = stage;
         }
 
+        public Boolean getIsBase64Encoded() {
+            return isBase64Encoded;
+        }
+
+        public void setIsBase64Encoded(Boolean isBase64Encoded) {
+            this.isBase64Encoded = isBase64Encoded;
+        }
+
         @Override
         public String toString() {
             return "ProxyRequestContext{" +
@@ -123,6 +136,7 @@ public class APIGatewayProxyRequestEvent implements Serializable, Cloneable {
                     ", identity=" + identity +
                     ", sourceIp='" + sourceIp + '\'' +
                     ", stage='" + stage + '\'' +
+                    ", isBase64Encoded='" + isBase64Encoded + '\'' +
                     '}';
         }
 
@@ -137,12 +151,13 @@ public class APIGatewayProxyRequestEvent implements Serializable, Cloneable {
                     Objects.equals(getRequestId(), that.getRequestId()) &&
                     Objects.equals(getIdentity(), that.getIdentity()) &&
                     Objects.equals(getSourceIp(), that.getSourceIp()) &&
-                    Objects.equals(getStage(), that.getStage());
+                    Objects.equals(getStage(), that.getStage()) &&
+                    Objects.equals(getIsBase64Encoded(), that.getIsBase64Encoded());
         }
 
         @Override
         public int hashCode() {
-            return Objects.hash(getServiceId(), getPath(), getHttpMethod(), getRequestId(), getIdentity(), getSourceIp(), getStage());
+            return Objects.hash(getServiceId(), getPath(), getHttpMethod(), getRequestId(), getIdentity(), getSourceIp(), getStage(), getIsBase64Encoded());
         }
 
         @Override
@@ -162,7 +177,8 @@ public class APIGatewayProxyRequestEvent implements Serializable, Cloneable {
 
         private String secretId;
 
-        public RequestIdentity() {}
+        public RequestIdentity() {
+        }
 
         public String getSecretId() {
             return secretId;
@@ -205,7 +221,8 @@ public class APIGatewayProxyRequestEvent implements Serializable, Cloneable {
     /**
      * default constructor
      */
-    public APIGatewayProxyRequestEvent() {}
+    public APIGatewayProxyRequestEvent() {
+    }
 
     public ProxyRequestContext getRequestContext() {
         return requestContext;
@@ -287,6 +304,14 @@ public class APIGatewayProxyRequestEvent implements Serializable, Cloneable {
         this.httpMethod = httpMethod;
     }
 
+    public Boolean getIsBase64Encoded() {
+        return isBase64Encoded;
+    }
+
+    public void setisBase64Encoded(Boolean isBase64Encoded) {
+        this.isBase64Encoded = isBase64Encoded;
+    }
+
     @Override
     public String toString() {
         return "APIGatewayProxyRequestEvent{" +
@@ -300,6 +325,7 @@ public class APIGatewayProxyRequestEvent implements Serializable, Cloneable {
                 ", path='" + path + '\'' +
                 ", queryString=" + queryString +
                 ", httpMethod='" + httpMethod + '\'' +
+                ", isBase64Encoded='" + isBase64Encoded + '\'' +
                 '}';
     }
 
@@ -317,12 +343,13 @@ public class APIGatewayProxyRequestEvent implements Serializable, Cloneable {
                 Objects.equals(getStageVariables(), that.getStageVariables()) &&
                 Objects.equals(getPath(), that.getPath()) &&
                 Objects.equals(getQueryString(), that.getQueryString()) &&
-                Objects.equals(getHttpMethod(), that.getHttpMethod());
+                Objects.equals(getHttpMethod(), that.getHttpMethod()) &&
+                Objects.equals(getIsBase64Encoded(), that.getIsBase64Encoded());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getRequestContext(), getHeaders(), getBody(), getPathParameters(), getQueryStringParameters(), getHeaderParameters(), getStageVariables(), getPath(), getQueryString(), getHttpMethod());
+        return Objects.hash(getRequestContext(), getHeaders(), getBody(), getPathParameters(), getQueryStringParameters(), getHeaderParameters(), getStageVariables(), getPath(), getQueryString(), getHttpMethod(), getIsBase64Encoded());
     }
 
     @Override
