@@ -1,4 +1,4 @@
-package com.qcloud.services.scf.runtime.events;
+package example.model;
 
 import java.io.Serializable;
 import java.util.List;
@@ -176,7 +176,7 @@ public class CosEvent implements Serializable, Cloneable {
 
         private String key;
 
-        private Integer size;
+        private long size;
 
         public CosObjectInfo() {}
 
@@ -212,11 +212,11 @@ public class CosEvent implements Serializable, Cloneable {
             this.key = key;
         }
 
-        public Integer getSize() {
+        public long getSize() {
             return size;
         }
 
-        public void setSize(Integer size) {
+        public void setSize(long size) {
             this.size = size;
         }
 
