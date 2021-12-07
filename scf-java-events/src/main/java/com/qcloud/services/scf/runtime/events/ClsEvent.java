@@ -1,4 +1,4 @@
-package example;
+package com.qcloud.services.scf.runtime.events;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -6,7 +6,9 @@ import java.io.Serializable;
 import java.util.Objects;
 
 
-
+/**
+ * Class that represents an Cls Event
+ */
 public class ClsEvent {
     private static final long serialVersionUID = -6966030226883961108L;
 

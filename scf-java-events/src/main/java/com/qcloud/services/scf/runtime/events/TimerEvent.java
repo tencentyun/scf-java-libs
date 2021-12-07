@@ -1,4 +1,4 @@
-package example;
+package com.qcloud.services.scf.runtime.events;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

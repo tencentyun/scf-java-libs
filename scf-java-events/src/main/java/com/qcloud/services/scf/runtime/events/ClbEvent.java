@@ -1,4 +1,4 @@
-package example;
+package com.qcloud.services.scf.runtime.events;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -7,7 +7,9 @@ import java.io.Serializable;
 import java.util.Objects;
 import java.util.Map;
 
-
+/**
+ * Class that represents an Clb Event
+ */
 public class ClbEvent implements Serializable, Cloneable {
 
     private static final long serialVersionUID = -1030954810507877056L;
